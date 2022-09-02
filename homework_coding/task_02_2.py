@@ -6,12 +6,17 @@
 # - x=2; y=4-> 1
 # - x=-34; y=-30 -> 3
 
-x, y = int(input('Введите значение x: ')), int(input('Введите значение y: '))
-if x > 0 and y > 0:
-    print('-> 1')
-elif x < 0 and y > 0:
-    print('-> 2')
-elif x < 0 and y < 0:
-    print('-> 3')
+
+x, y = input('Введите значение x: '), input('Введите значение y: ')
+if x.isdigit() == True and y.isdigit() == True:
+    x, y = int(x), int(y)
+    if x > 0 and y > 0:
+        print('-> 1')
+    elif x < 0 and y > 0:
+        print('-> 2')
+    elif x < 0 and y < 0:
+        print('-> 3')
+    else:
+        print('-> 4')
 else:
-    print('-> 4')
+    print('Error')

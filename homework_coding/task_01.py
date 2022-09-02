@@ -5,10 +5,15 @@
 # - 7 -> да
 # - 1 -> нет
 
-day = int(input('Введите цифру обозначающую день недели: '))
-if day == 6 or day == 7:
-    print('Да')
-elif 1 <= day <= 5:
-    print('Нет')
-else:
+
+day = input('Введите цифру обозначающую день недели: ')
+if day.isdigit() == False:
     print('Error')
+else:
+    day = int(day)
+    if day == 6 or day == 7:
+        print('Да')
+    elif 1 <= day <= 5:
+        print('Нет')
+    else:
+        print('Error')
