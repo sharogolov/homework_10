@@ -4,19 +4,38 @@
 #  в одной строке одно число.
 
 import random
-try:
-    num = int(input('Введите количество элементов в списке: '))
-    list_number = []
-    
+
+def get_number(input_string):
+    try:
+        num = int(input(input_string))
+        return num
+    except(ValueError):
+        return get_number()
+
+def list_random(num):
+    list_element = []        
     for i in range(num):
-        list_number.append(random.randint(-num, num))
-    print('Список: ', list_number)
+        list_element.append(random.randint(-num, num))
+    return list_element
 
-    index_1 = random.randint(0, num -1)
-    index_2 = random.randint(0, num -1)
+def write_file(num):
+    f = open('file.txt', 'w')
+    ind_1, ind_2 = str(random.randint(0, num - 1)), str(random.randint(0, num - 1))
+    f.write(ind_1)
+    f.write('\n')
+    f.write(ind_2)
+    f.close()
 
-    result = list_number[index_1] * list_number[index_2]
+def read_file(list_random):
+    x = open('file.txt', 'r')
+    index_1, index_2 = int(x.readline()), int(x.readline())
+    x.close()
+    return list_random[index_1] * list_random[index_2]
 
-    print(f'{list_number[index_1]} * {list_number[index_2]} = {result}')
-except(ValueError):
-    print('Что-то пошло не так...')
+
+number = get_number('Введите количество элементов в списке: ')
+list_number = list_random(number) 
+print('Список: ', list_number)
+write_file(number)
+number_result = read_file(list_number)
+print(f'Произведение элементов =', number_result)

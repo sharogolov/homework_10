@@ -3,18 +3,18 @@
 # Пример:
 # - пусть N = 4, тогда [ 1, 2, 6, 24 ] (1, 1*2, 1*2*3, 1*2*3*4)
 
-import math
-try:
-    def multiplication_numbers(numbers):
-        list_numbers = []
-        for i in range(1, int(numbers) + 1):
-            list_numbers.append(math.factorial(i))
-        return list_numbers   
+def list_element():
+    try:
+        num = int(input('Введите число: '))
+        if num < 0:
+            return print('Последовательности для отрицательных чисел не существует')
+        list_number = []
+        element = 1
+        for i in range(1, num + 1):
+            element *= i
+            list_number.append(element)
+        return print(list_number)
+    except(ValueError):
+        return list_element()
 
-    num = input('Введите число: ')
-    result = multiplication_numbers(num)
-    print(result)
-
-except(ValueError):
-    print('Что-то пошло не так...')
-
+list_element()

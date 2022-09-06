@@ -1,21 +1,25 @@
 # Задайте список из n чисел последовательности $(1+\frac 1 n)^n$
 # и выведите на экран их сумму.
 
-try:
-    def sum_number(number):
-        number = int(number)
-        list_number = []
-        if number > 0:
-            for i in range(1, number + 1):
-                list_number.append((1 + 1 / i) ** i)
-        else:
-            for i in range(number, 0, -1):
-                list_number.append((1 + 1 / i) ** i)
-        return round(sum(list_number), 2)
+def get_number():
+    try:
+        num = int(input('Введите число: '))
+        return num
+    except(ValueError):
+        return get_number()
+
+
+def sum_number(number):
+    number = int(number)
+    if number == 0:
+        return 'Последовательность из нуля чисел равна нулю'
+    if number < 0:
+        return 'Последовательность не может быть отрицательной'
+    list_number = list((1 + 1 / i) ** i for i in range(1, number + 1))
+    return round(sum(list_number), 2)
 
     
-    num = input('Введите число: ')
-    result = sum_number(num)
-    print(result)
-except(ValueError):
-    print('Что-то пошло не так...')
+num = get_number()
+result = sum_number(num)
+print(result)
+
