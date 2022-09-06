@@ -22,9 +22,8 @@ def palindrom(num):
         num = str(int(num) + int(num[::-1]))
         return palindrom(num)
     else:
-        #result = num
+       
         return print(f'Палиндром = {num}')
 
 number = str(get_number())
 palindrom(number)
-#print(f'Палиндром для числа {number} = {number_result}')
