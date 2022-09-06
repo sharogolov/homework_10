@@ -8,14 +8,16 @@
 def list_element():
     try:
         num = int(input('Введите число: '))
+        if num < 0:
+            return print('Последовательности для отрицательных чисел не существует')
         list_number = []
         element = 1
         for i in range(1, num + 1):
             element *= i
             list_number.append(element)
-        return list_number
+        return print(list_number)
     except(ValueError):
         return list_element()
 
-list_result = list_element()
-print(list_result)
+list_element()
+

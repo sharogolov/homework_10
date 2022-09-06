@@ -7,7 +7,7 @@
 # Это происходит до тех пор, пока не будет найден палиндром.
 # Напишите такую программу, которая найдет палиндром введенного 
 # пользователем числа.
-
+    
 def get_number():
     try:
         num = int(input('Введите число: '))
@@ -15,16 +15,16 @@ def get_number():
     except(ValueError):
         return get_number()
 
-
-
 def palindrom(num):
-    if num != num[::-1]:
+    if int(num) < 0:
+        return print('Палиндром для отрицательного числа не существует')
+    elif num != num[::-1]:
         num = str(int(num) + int(num[::-1]))
         return palindrom(num)
     else:
-        result = num
-        return result
+        #result = num
+        return print(f'Палиндром = {num}')
 
 number = str(get_number())
-number_result = palindrom(number)
-print(f'Палиндром для числа {number} = {number_result}')        
+palindrom(number)
+#print(f'Палиндром для числа {number} = {number_result}')
