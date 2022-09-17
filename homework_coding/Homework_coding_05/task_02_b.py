@@ -61,7 +61,7 @@ def playng(candy:int, player:str, player_1:str, player_2:str, messages:list)->st
     winner = ''
     while candy > 0:
         if candy == 2021 and player == player_2:
-            move = 5
+            move = 20
             print(f'Я беру {move} конфет')
             candy -= move
             player = player_1
