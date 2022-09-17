@@ -30,8 +30,11 @@ def get_polynomial(num:int)->str:
     expr = 0
     for i in range(num + 1):
         a = random.randint(0, 100)
+        if a == 1:
+            expr += x ** i
         if a != 0:
-            expr += a * x ** i       
+            expr += a * x ** i
+    expr = str(expr) + ' = 0'    
     return expr
 
 def write_file(polynomial):
@@ -39,10 +42,12 @@ def write_file(polynomial):
     Запись многочлена в фаил
     '''
     f = open('file_04_04.txt', 'w')
-    f.write(str(polynomial))
+    f.write(polynomial)
     f.close()
 
 number = abs(get_number('Введите степень многочлена, это должно быть целое число: '))
 string = get_polynomial(number)
 print('Создан многочлен:\n', string)
 write_file(string)
+
+
