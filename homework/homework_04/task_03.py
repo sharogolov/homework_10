@@ -41,5 +41,6 @@ def get_list_uique(list_num:list)->list:
 number = abs(get_number('Введите размер списка, это должно быть целое число: '))
 list_number = get_list(number)
 print('Исходный список', list_number)
+# list_number = [1, 2, 3, 5, 1, 5, 3, 10]
 list_result = get_list_uique(list_number)
 print('Список неповторяющихся элементов', list_result)
