@@ -12,9 +12,25 @@
 from os import system
 system("cls")
 
-a = '3 6'
-b = '2 1'
-a, b = list(map(int, a.split(' '))), list(map(int, b.split(' ')))
-d = round(sum([(j - i) ** 2 for i, j in zip(a, b)]) ** 0.5, 2)
-print(d)
+def get_point(input_string:str)->list:
+    '''
+    Получение координат точки
+    в виде списка 
+    '''
+    while True:
+        try:
+            a = input(input_string)
+            lst = list(map(int, a.split(' ')))
+            return lst
+        except ValueError:
+            print('Это не то ...')
+
+# a = '3 6'
+# b = '2 1'
+# a, b = list(map(int, a.split(' '))), list(map(int, b.split(' ')))
+
+point_a = get_point('Введите координаты точки (числа вводятся через пробел):')
+point_b = get_point('Введите координаты точки (числа вводятся через пробел):')
+result = round(sum([(j - i) ** 2 for i, j in zip(point_a, point_b)]) ** 0.5, 2)
+print('Расстояние между точками =', result)
 

@@ -11,11 +11,18 @@
 # список: ["123", "234", 123, "567"], 
 # ищем: "123", ответ: -1
 # список: [], ищем: "123", ответ: -1
+
 from os import system
 system("cls")
 
-string = ["qwe", "asd", "zxc", "qwe", "ertqwe"]
-res = [y for x, y in zip(string, list(range(len(string)))) if  x == 'qwe']
+import function as fun
+
+
+# lines = ["qwe", "asd", "zxc", "qwe", "ertqwe"]
+# elem = 'qwe'
+lines = [input('Введите элемент массива:') for _ in range (fun.get_number('Введите размер списка: '))]
+elem = input('Введите элемент для поиска: ')
+res = [y for x, y in zip(lines, list(range(len(lines)))) if  x == elem]
 if len(res) > 1:
     print(res[1])
 else:

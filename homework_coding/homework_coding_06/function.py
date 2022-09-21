@@ -34,4 +34,30 @@ def read_file(name:str)->str:
         data = f.read()
         return data
 
+def remove_spaces_in_string(text):
+    '''
+    Чистит строку - удаляет все пробелы
+    '''
+    text = text.replace(' ', '')
+    return text
+
+def remove_bracket_in_string(text):
+    '''
+    Удаляет скобки из строки
+    '''
+    text = text.replace('(', '')
+    text = text.replace(')', '')
+    return text
+
+def remove_symbols_in_string(text):
+    '''
+    Удаляет заданные символы из строки
+    '''
+    text = text.replace('+', '')
+    text = text.replace('-', '')
+    text = text.replace('/', '')
+    text = text.replace('*', '')
+    text = text.replace('(', '')
+    text = text.replace(')', '')
+    return text
 
