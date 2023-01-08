@@ -1,3 +1,2 @@
-import controller as c
-
-c.button_click()
+s=sorted(input().split(), key=lambda x: len(x))[::-1]
+print(*s)
